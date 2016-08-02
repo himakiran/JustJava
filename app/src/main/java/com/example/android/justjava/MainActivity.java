@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
-    boolean check;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
-        check = checkBox1.isChecked();
+        boolean check = checkBox1.isChecked();
         int price = calculatePrice();
-        String summary = createOrderSummary(price);
+        String summary = createOrderSummary(price,check);
         displayMessage(summary);
     }
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
      * @param price of the order
      * @return String that consists of the name quantity total and thank you
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, boolean check) {
         String checkText = "";
         if (check == true)
                 checkText = "true";
