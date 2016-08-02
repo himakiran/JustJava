@@ -1,10 +1,11 @@
 package com.example.android.justjava;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
-
 
 
 /**
@@ -13,6 +14,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
+    boolean check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
+        check = checkBox1.isChecked();
         int price = calculatePrice();
-        String summary  = createOrderSummary(price);
+        String summary = createOrderSummary(price);
         displayMessage(summary);
     }
 
@@ -56,13 +61,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * This method displays the given text on the screen.
      */
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 
     /**
@@ -77,12 +81,19 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * creates a summary of the order placed
+     *
      * @param price of the order
      * @return String that consists of the name quantity total and thank you
      */
-    private String createOrderSummary(int price)
-    {
-        return "Name: Kaptain Kumar" + "\n"  + "Quantity: "+String.valueOf(quantity) +"\n"  + "Total: " + String.valueOf(price) + "\n" +"Thank you !";
+    private String createOrderSummary(int price) {
+        String checkText = "";
+        if (check == true)
+                checkText = "true";
+        else
+            checkText = "false";
+
+        return "Name: Lyla the Labyrinth" + "\n"
+                +"Add whipped cream? "+checkText+"\n"+ "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
 
     }
 }
