@@ -27,9 +27,11 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
+        CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
         boolean check = checkBox1.isChecked();
+        boolean check2 = checkBox2.isChecked();
         int price = calculatePrice();
-        String summary = createOrderSummary(price,check);
+        String summary = createOrderSummary(price,check,check2);
         displayMessage(summary);
     }
 
@@ -85,15 +87,21 @@ public class MainActivity extends AppCompatActivity {
      * @param price of the order
      * @return String that consists of the name quantity total and thank you
      */
-    private String createOrderSummary(int price, boolean check) {
-        String checkText = "";
+    private String createOrderSummary(int price, boolean check, boolean check2) {
+        String checkText, checkText2 = "";
         if (check == true)
                 checkText = "true";
         else
             checkText = "false";
 
+        if (check == true)
+            checkText2 = "true";
+        else
+            checkText2 = "false";
+
         return "Name: Lyla the Labyrinth" + "\n"
-                +"Add whipped cream? "+checkText+"\n"+ "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
+                +"Add whipped cream? "+checkText+"\n"
+                +"Add Chocolate ? "+checkText+"\n" + "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
 
     }
 }
