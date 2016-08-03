@@ -1,6 +1,8 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,9 +33,22 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
         boolean check = checkBox1.isChecked();
         boolean check2 = checkBox2.isChecked();
-        int price = calculatePrice(check,check2);
-        String summary = createOrderSummary(price,check,check2);
-        displayMessage(summary);
+        int price = calculatePrice(check, check2);
+        String summary = createOrderSummary(price, check, check2);
+        String userName = "";
+        EditText editText = (EditText) findViewById(R.id.name_field);
+        userName = editText.getText().toString();
+        //displayMessage(summary);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, "");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + userName);
+        intent.putExtra(Intent.EXTRA_TEXT, summary);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+
+
     }
 
     /**
@@ -51,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
 
         quantity += 1;
-        if(quantity > 100)
+        if (quantity > 100)
             quantity = 100;
         displayQuantity(quantity);
     }
@@ -71,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }
+//    private void displayMessage(String message) {
+//        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+//        orderSummaryTextView.setText(message);
+//    }
 
     /**
      * Calculates the price of the order.
@@ -85,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
         int price = quantity * 5;
         if (check == true)
-            price += (quantity*1);
+            price += (quantity * 1);
         if (check2 == true)
-            price += (quantity*2);
+            price += (quantity * 2);
         return price;
     }
 
@@ -98,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
      * @return String that consists of the name quantity total and thank you
      */
     private String createOrderSummary(int price, boolean check, boolean check2) {
-        String checkText, checkText2 , userName = "";
+        String checkText, checkText2, userName = "";
         if (check == true)
-                checkText = "true";
+            checkText = "true";
         else
             checkText = "false";
 
@@ -113,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
         userName = editText.getText().toString();
 
         return "Name: " + userName + "\n"
-                +"Add whipped cream? "+checkText+"\n"
-                +"Add Chocolate ? "+checkText+"\n" + "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
+                + "Add whipped cream? " + checkText + "\n"
+                + "Add Chocolate ? " + checkText + "\n" + "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
 
     }
 }
