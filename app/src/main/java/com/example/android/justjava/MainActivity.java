@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
         boolean check = checkBox1.isChecked();
         boolean check2 = checkBox2.isChecked();
-        int price = calculatePrice();
+        int price = calculatePrice(check,check2);
         String summary = createOrderSummary(price,check,check2);
         displayMessage(summary);
     }
@@ -77,9 +77,14 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return the total price
      */
-    private int calculatePrice() {
+    private int calculatePrice(boolean check, boolean check2) {
 
-        return quantity * 5;
+        int price = quantity * 5;
+        if (check == true)
+            price += 1;
+        if (check2 == true)
+            price += 2;
+        return price;
     }
 
     /**
