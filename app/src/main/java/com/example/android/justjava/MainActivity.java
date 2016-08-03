@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
      * @return String that consists of the name quantity total and thank you
      */
     private String createOrderSummary(int price, boolean check, boolean check2) {
-        String checkText, checkText2 = "";
+        String checkText, checkText2 , userName = "";
         if (check == true)
                 checkText = "true";
         else
@@ -99,7 +100,10 @@ public class MainActivity extends AppCompatActivity {
         else
             checkText2 = "false";
 
-        return "Name: Lyla the Labyrinth" + "\n"
+        EditText editText = (EditText) findViewById(R.id.name_field);
+        userName = editText.getText().toString();
+
+        return "Name: " + userName + "\n"
                 +"Add whipped cream? "+checkText+"\n"
                 +"Add Chocolate ? "+checkText+"\n" + "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
 
