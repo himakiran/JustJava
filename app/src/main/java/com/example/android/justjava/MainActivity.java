@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
 
         quantity += 1;
+        if(quantity > 100)
+            quantity = 100;
         displayQuantity(quantity);
     }
 
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
 
         quantity -= 1;
+        if (quantity < 0)
+            quantity = 0;
         displayQuantity(quantity);
     }
 
@@ -81,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
         int price = quantity * 5;
         if (check == true)
-            price += 1;
+            price += (quantity*1);
         if (check2 == true)
-            price += 2;
+            price += (quantity*2);
         return price;
     }
 
