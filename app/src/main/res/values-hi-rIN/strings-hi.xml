@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">सिर्फ जावा</string>
+    <string name="name">नामा</string>
+    <string name="toppings">टॉपिंगा</string>
+    <string name="whipped_cream">फेटी हुई मलाई </string>
+    <string name="chocolate">चॉकलेटा</string>
+    <string name="quantity">मात्रा  </string>
+    <string name="hyphen">-</string>
+    <string name="_0">0</string>
+    <string name="plus">+</string>
+    <string name="order">आदेशा</string>
+    <string name="name1">"नाम:" </string>
+    <string name="addwc">"कोसा क्रीम जोड़ें?"</string>
+    <string name="addc">"चॉकलेट जोड़ें?"</string>
+    <string name="qty">"मात्रा:"</string>
+    <string name="total">"कुल: "</string>
+    <string name="thku">धन्यवाद !</string>
+    <string name="orderjj">"के लिए सिर्फ जावा आदेश"</string>
+</resources>
