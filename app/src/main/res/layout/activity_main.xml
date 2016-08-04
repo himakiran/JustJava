@@ -24,13 +24,13 @@
                 android:id="@+id/name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
+                android:hint="@string/name"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="TOPPINGS" />
+                android:text="@string/toppings" />
 
             <CheckBox
                 android:id="@+id/checkbox1"
@@ -39,7 +39,7 @@
                 android:layout_marginBottom="16dp"
                 android:buttonTint="@color/colorPrimary"
                 android:paddingLeft="24dp"
-                android:text="Whipped cream"
+                android:text="@string/whipped_cream"
                 android:textSize="16sp"
 
                 />
@@ -50,7 +50,7 @@
                 android:layout_marginBottom="16dp"
                 android:buttonTint="@color/colorPrimary"
                 android:paddingLeft="24dp"
-                android:text="Chocolate"
+                android:text="@string/chocolate"
                 android:textSize="16sp"
 
                 />
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="QUANTITY" />
+                android:text="@string/quantity" />
 
 
             <LinearLayout
@@ -76,7 +76,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="16dp"
                     android:onClick="decrement"
-                    android:text="-" />
+                    android:text="@string/hyphen" />
 
                 <TextView
                     android:id="@+id/quantity_text_view"
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -95,7 +95,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="16dp"
                     android:onClick="increment"
-                    android:text="+" />
+                    android:text="@string/plus" />
 
             </LinearLayout>
 
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="submitOrder"
-                android:text="ORDER" />
+                android:text="@string/order" />
         </LinearLayout>
     </ScrollView>
 

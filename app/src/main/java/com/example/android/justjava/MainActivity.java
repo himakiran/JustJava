@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_EMAIL, "");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + userName);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.orderjj) + userName);
         intent.putExtra(Intent.EXTRA_TEXT, summary);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -127,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.name_field);
         userName = editText.getText().toString();
 
-        return "Name: " + userName + "\n"
-                + "Add whipped cream? " + checkText + "\n"
-                + "Add Chocolate ? " + checkText + "\n" + "Quantity: " + String.valueOf(quantity) + "\n" + "Total: " + String.valueOf(price) + "\n" + "Thank you !";
+        return getString(R.string.name1) + userName + "\n"
+                + getString(R.string.addwc) + checkText + "\n"
+                + getString(R.string.addc) + checkText + "\n" + getString(R.string.qty) + String.valueOf(quantity) + "\n" + getString(R.string.total) + String.valueOf(price) + "\n" + getString(R.string.thku);
 
     }
 }
